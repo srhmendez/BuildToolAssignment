@@ -59,43 +59,46 @@ function loadTodos() {
     incompleteDiv.innerHTML = '';
     let completeDiv = document.getElementById('complete')
     completeDiv.innerHTML = '';
+
     todoList.forEach(todo => {
         let taskDiv = document.createElement('div');
+        taskDiv.classList.add('todoDisplayTaskDiv')
+
         let todoH2 = document.createElement('h2');
+        todoH2.innerText = todo.task;
+        todoH2.classList.add('todoTaskName')
+
         let checkBox = document.createElement('input');
         checkBox.setAttribute('name', todo.index)
         checkBox.addEventListener('click', toggleComplete)
+        checkBox.setAttribute("type", 'checkbox')
+        checkBox.classList.add('checkbox')
+        isChecked = todo.complete;
+        checkBox.checked = isChecked;
+
         let editIcon = document.createElement('IMG');
         editIcon.classList.add('iconSize')
         editIcon.addEventListener('click', editTask)
+
         let deleteIcon = document.createElement('IMG');
         deleteIcon.addEventListener('click', deleteTask)
         deleteIcon.classList.add('iconSize')
-        let iconDiv = document.createElement('div');
-        let nameAndCheckboxDiv = document.createElement('div');
 
-        editIcon.setAttribute('src', './images/pencil.png');
-        deleteIcon.setAttribute('src', './images/remove.png');
+        let iconDiv = document.createElement('div');
         iconDiv.appendChild(editIcon);
         iconDiv.appendChild(deleteIcon)
         iconDiv.classList.add('iconDiv')
 
-        checkBox.setAttribute("type", 'checkbox')
-        checkBox.classList.add('checkbox')
-        todoH2.innerText = todo.task;
-        todoH2.classList.add('todoTaskName')
+        editIcon.setAttribute('src', './images/pencil.png');
+        deleteIcon.setAttribute('src', './images/remove.png');
+
+        let nameAndCheckboxDiv = document.createElement('div');
         nameAndCheckboxDiv.appendChild(checkBox);
         nameAndCheckboxDiv.appendChild(todoH2)
         nameAndCheckboxDiv.classList.add('check-and-taskname')
 
-
-
         taskDiv.appendChild(nameAndCheckboxDiv)
         taskDiv.appendChild(iconDiv);
-        taskDiv.classList.add('todoDisplayTaskDiv')
-        isChecked = todo.complete;
-        checkBox.checked = isChecked;
-
 
         if(todo.complete){
             completeDiv.appendChild(taskDiv)
@@ -118,11 +121,13 @@ function adjustIndexNumbers() {
 }
 
 function toggleComplete(event) {
-    console.log(event.target)
+    
     let index = event.target.name;
+
     let complete = todoList[index].complete;
     complete ? todoList[index].complete = false : todoList[index].complete = true;
     console.log(todoList[index])
+
     loadTodos()
 }
 
@@ -132,7 +137,6 @@ function deleteTask(event){
 
     todoList = filteredArr;
 
-    console.log('list after delete', todoList)
     loadTodos()
     
 }
@@ -143,20 +147,23 @@ function editTask(event){
 
     let newInputField = document.createElement('input');
     newInputField.classList.add('editField');
-
-    checkBoxDiv.appendChild(newInputField)
     newInputField.addEventListener('change', editTaskName)
     newInputField.setAttribute('type', 'text')
     newInputField.select();
+
+    checkBoxDiv.appendChild(newInputField)
+
 
 }
 
 function editTaskName(event){
     let input = event.target.value;
+
     let h2 = document.createElement('h2');
     h2.innerHTML = input;
+
     let parentDiv = event.target.parentElement.parentElement.children[0]
-    let inputField = parentDiv.children[1]
+    
     let index = parentDiv.children[0].name;
 
     todoList[index].task = input;
