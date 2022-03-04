@@ -54,13 +54,13 @@ function getTodo(event) {
     let newTodoObject = {
         index : indexNum,
         task : todoName,
-        complete : false
+        complete : false,
     };
     todoList.push(newTodoObject)
     event.target.value = '';
 
     loadTodos();
-    console.log(todoList)
+    console.log('todo list after Adding a todo-->', todoList)
 }
 
 function loadTodos() {
@@ -68,6 +68,8 @@ function loadTodos() {
     incompleteDiv.innerHTML = '';
     let completeDiv = document.getElementById('complete')
     completeDiv.innerHTML = '';
+
+    adjustIndexNumbers();
 
     todoList.forEach(todo => {
         let taskDiv = document.createElement('div');
@@ -115,7 +117,6 @@ function loadTodos() {
             incompleteDiv.appendChild(taskDiv);
         }
     })
-    adjustIndexNumbers();
 }
 
 loadTodos();
@@ -133,9 +134,8 @@ function toggleComplete(event) {
     
     let index = event.target.name;
 
-    let complete = todoList[index].complete;
-    complete ? todoList[index].complete = false : todoList[index].complete = true;
-    console.log(todoList[index])
+    let isComplete = todoList[index].complete;
+    !isComplete ? todoList[index].complete = true : todoList[index].complete = false;
 
     loadTodos()
 }
