@@ -43,6 +43,7 @@ let todoList = [
 
 function getTodo(event) {
   let todoName = event.target.value;
+  
   let indexNum = todoList.length;
   let newTodoObject = {
     index: indexNum,
