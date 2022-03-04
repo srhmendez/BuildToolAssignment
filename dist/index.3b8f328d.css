@@ -1,0 +1,63 @@
+#addTodoDiv {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+h1{
+    text-align: center;
+}
+.inputGroup {
+    display:flex;
+    justify-content: center;
+}
+.todoTaskName {
+    text-align: center;
+}
+.displayTodosDiv {
+    width:60%;
+    margin:10% 20%;
+}
+.todoDisplayTaskDiv {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.checkbox{
+    margin-right:5%;
+}
+.iconSize{
+    max-width:20px;
+    margin-right:20%;
+}
+.iconDiv {
+    display:flex;
+}
+.check-and-taskname {
+    display:flex;
+    width:100%;
+    align-items: center;
+}
+.inputField{
+   height:50px;
+   width:400px;
+   margin-right:10px;
+}
+.editField{
+    height:25px;
+}
+#completed-div {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:6%;
+    height:100px;
+}
+#clear-tasks-btn{
+    
+    background-color: rgb(204, 235, 255);
+    border: none;
+    padding:10px;
+    border-radius:8px;
+    
+}
+/*# sourceMappingURL=index.3b8f328d.css.map */

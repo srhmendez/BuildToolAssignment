@@ -1,3 +1,7 @@
+import editPNG from '../images/pencil.png';
+import deletePNG from '../images/remove.png';
+import 'underscore';
+
 let inputDiv = document.createElement('div');
 let inputField = document.createElement('input');
 let submitTodoBtn = document.createElement('button');
@@ -94,8 +98,8 @@ function loadTodos() {
         iconDiv.appendChild(deleteIcon)
         iconDiv.classList.add('iconDiv')
 
-        editIcon.setAttribute('src', './images/pencil.png');
-        deleteIcon.setAttribute('src', './images/remove.png');
+        editIcon.setAttribute('src', editPNG);
+        deleteIcon.setAttribute('src', deletePNG);
 
         let nameAndCheckboxDiv = document.createElement('div');
         nameAndCheckboxDiv.appendChild(checkBox);
