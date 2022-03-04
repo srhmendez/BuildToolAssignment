@@ -1,5 +1,4 @@
 import 'underscore';
-import './styles.css';
 import editPNG from './images/pencil.png';
 import deletePNG from './images/remove.png';
 
