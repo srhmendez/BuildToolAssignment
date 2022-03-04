@@ -1,12 +1,14 @@
+import 'underscore';
+import './styles.css';
+import editPNG from './images/pencil.png';
+import deletePNG from './images/remove.png';
+
 let inputDiv = document.createElement('div');
 let inputField = document.createElement('input');
 let submitTodoBtn = document.createElement('button');
 let bodyElement = document.querySelector('#addTodoDiv');
 let displayDiv = document.getElementById('display')
 let clearBtn = document.getElementById('clear-tasks-btn')
-
-
-console.log(clearBtn)
 
 
 submitTodoBtn.innerHTML = "Add Todo"
@@ -46,7 +48,7 @@ let todoList = [
 
 function getTodo(event) {
     let todoName = event.target.value;
-    indexNum = todoList.length
+    let indexNum = todoList.length
     let newTodoObject = {
         index : indexNum,
         task : todoName,
@@ -56,7 +58,6 @@ function getTodo(event) {
     event.target.value = '';
 
     loadTodos();
-    console.log(todoList)
 }
 
 function loadTodos() {
@@ -65,6 +66,7 @@ function loadTodos() {
     let completeDiv = document.getElementById('complete')
     completeDiv.innerHTML = '';
 
+    console.log('todo after clear -->', todoList)
     todoList.forEach(todo => {
         let taskDiv = document.createElement('div');
         taskDiv.classList.add('todoDisplayTaskDiv')
@@ -74,28 +76,31 @@ function loadTodos() {
         todoH2.classList.add('todoTaskName')
 
         let checkBox = document.createElement('input');
-        checkBox.setAttribute('name', todo.index)
+        let indexOfTodo = todoList.indexOf(todo);
+        checkBox.setAttribute('name', indexOfTodo)
         checkBox.addEventListener('click', toggleComplete)
         checkBox.setAttribute("type", 'checkbox')
         checkBox.classList.add('checkbox')
-        isChecked = todo.complete;
+        let isChecked = todo.complete;
         checkBox.checked = isChecked;
 
         let editIcon = document.createElement('IMG');
         editIcon.classList.add('iconSize')
         editIcon.addEventListener('click', editTask)
+        editIcon.setAttribute('src', editPNG)
 
         let deleteIcon = document.createElement('IMG');
         deleteIcon.addEventListener('click', deleteTask)
         deleteIcon.classList.add('iconSize')
+        deleteIcon.setAttribute('src', deletePNG);
+
 
         let iconDiv = document.createElement('div');
         iconDiv.appendChild(editIcon);
         iconDiv.appendChild(deleteIcon)
         iconDiv.classList.add('iconDiv')
 
-        editIcon.setAttribute('src', './images/pencil.png');
-        deleteIcon.setAttribute('src', './images/remove.png');
+
 
         let nameAndCheckboxDiv = document.createElement('div');
         nameAndCheckboxDiv.appendChild(checkBox);
@@ -127,6 +132,8 @@ function adjustIndexNumbers() {
 
 function toggleComplete(event) {
     
+    loadTodos()
+
     let index = event.target.name;
 
     let complete = todoList[index].complete;

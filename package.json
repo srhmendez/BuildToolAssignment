@@ -1,0 +1,30 @@
+{
+  "name": "buildtoolassignment",
+  "version": "1.0.0",
+  "description": "Javascript build tools and bundlers are an important part of the web developers' tool kit. These tools allow the developer to take their code and prepare it for production. In this assignment, we will take a simple app, build it, and deploy it to production with 2 tools. First with Webpack and second with a bundler of your choice.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srhmendez/BuildToolAssignment.git"
+  },
+  "keywords": [],
+  "author": "Sarah Mendez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srhmendez/BuildToolAssignment/issues"
+  },
+  "homepage": "https://github.com/srhmendez/BuildToolAssignment#readme",
+  "dependencies": {
+    "underscore": "^1.13.2"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
