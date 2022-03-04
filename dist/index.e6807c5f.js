@@ -662,7 +662,7 @@ function clearAllTasks() {
     loadTodos();
 }
 
-},{"../images/pencil.png":"cMcE8","../images/remove.png":"93E3y","@parcel/transformer-js/src/esmodule-helpers.js":"ejZFs","underscore":"8ViYx"}],"cMcE8":[function(require,module,exports) {
+},{"../images/pencil.png":"cMcE8","../images/remove.png":"93E3y","underscore":"8ViYx","@parcel/transformer-js/src/esmodule-helpers.js":"ejZFs"}],"cMcE8":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('k1dgc') + "pencil.31699059.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"f3Foe"}],"f3Foe":[function(require,module,exports) {
@@ -703,37 +703,7 @@ exports.getOrigin = getOrigin;
 },{}],"93E3y":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('k1dgc') + "remove.3beeb3ef.png" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"f3Foe"}],"ejZFs":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule' || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"8ViYx":[function(require,module,exports) {
+},{"./helpers/bundle-url":"f3Foe"}],"8ViYx":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 // ESM Exports
@@ -1442,7 +1412,37 @@ var nonEnumerableProps = [
 ];
 var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ejZFs"}],"7QCFL":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ejZFs"}],"ejZFs":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"7QCFL":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function restArguments(func, startIndex) {
