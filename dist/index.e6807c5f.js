@@ -587,7 +587,7 @@ function loadTodos() {
         checkBox.addEventListener('click', toggleComplete);
         checkBox.setAttribute("type", 'checkbox');
         checkBox.classList.add('checkbox');
-        isChecked = todo.complete;
+        let isChecked = todo.complete;
         checkBox.checked = isChecked;
         let editIcon = document.createElement('IMG');
         editIcon.classList.add('iconSize');
