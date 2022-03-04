@@ -3,6 +3,10 @@ let inputField = document.createElement('input');
 let submitTodoBtn = document.createElement('button');
 let bodyElement = document.querySelector('#addTodoDiv');
 let displayDiv = document.getElementById('display')
+let clearBtn = document.getElementById('clear-tasks-btn')
+
+
+console.log(clearBtn)
 
 
 submitTodoBtn.innerHTML = "Add Todo"
@@ -17,6 +21,7 @@ displayDiv.classList.add('displayTodosDiv')
 
 
 inputField.addEventListener('change', getTodo);
+clearBtn.addEventListener('click', clearAllTasks)
 
 let todoList = [
     {
@@ -167,5 +172,13 @@ function editTaskName(event){
     let index = parentDiv.children[0].name;
 
     todoList[index].task = input;
+    loadTodos()
+}
+
+function clearAllTasks() {
+    
+    let filteredArr = todoList.filter(item => !item.complete);
+    todoList = filteredArr;
+
     loadTodos()
 }
